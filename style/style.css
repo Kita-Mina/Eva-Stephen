@@ -339,3 +339,18 @@ body {
 .start-btn:active {
   transform: translate(-50%, -50%) scale(0.95);
 }
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+
+  .one h1 {
+    font-size: 2rem;
+  }
+
+  .three p {
+    font-size: 1rem;
+  }
+}
