@@ -313,3 +313,29 @@ body {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
+
+.start-btn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  font-size: 1.5em;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.start-btn:hover {
+  background-color: #ff1493;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.start-btn:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
