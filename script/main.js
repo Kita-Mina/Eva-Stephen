@@ -328,3 +328,17 @@ window.addEventListener('load', () => {
   }, 500);
 });
 
+//""""//
+
+const audioElement = document.getElementById("my-audio");
+
+window.onload = () => {
+  resolveFetch().then(() => {
+    animationTimeline();
+    
+    // Start the audio playback
+    audioElement.play().catch((error) => {
+      console.log("Error playing audio:", error);
+    });
+  });
+};
