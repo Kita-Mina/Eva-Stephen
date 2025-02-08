@@ -313,3 +313,18 @@ const resolveFetch = () => {
 };
 
 resolveFetch().then(animationTimeline());
+
+window.addEventListener('load', () => {
+  const audio = document.getElementById('background-music');
+
+  audio.play().catch((error) => {
+    audio.muted = false;
+    audio.play();
+  });
+
+  setTimeout(() => {
+    audio.muted = false;
+    audio.play();
+  }, 500);
+});
+
