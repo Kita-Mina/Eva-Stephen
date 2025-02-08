@@ -1,16 +1,16 @@
 // Animation Timeline
 const animationTimeline = () => {
-  // Spit chars that needs to be animated individually
+  // Split chars that need to be animated individually
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
 
   textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
     .split("")
-    .join("</span><span>")}</span`;
+    .join("</span><span>")}</span>`;
 
   hbd.innerHTML = `<span>${hbd.innerHTML
     .split("")
-    .join("</span><span>")}</span`;
+    .join("</span><span>")}</span>`;
 
   const ideaTextTrans = {
     opacity: 0,
@@ -60,7 +60,6 @@ const animationTimeline = () => {
     .from(".three", 0.7, {
       opacity: 0,
       y: 10,
-      // scale: 0.7
     })
     .to(
       ".three",
@@ -205,7 +204,6 @@ const animationTimeline = () => {
       {
         opacity: 0,
         y: -50,
-        // scale: 0.3,
         rotation: 150,
         skewX: "30deg",
         ease: Elastic.easeOut.config(1, 0.5),
@@ -275,9 +273,6 @@ const animationTimeline = () => {
       "+=0.5" 
     );
 
-  // tl.seek("currentStep");
-  // tl.timeScale(2);
-
   // Restart Animation on click
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
@@ -312,33 +307,20 @@ const resolveFetch = () => {
   });
 };
 
-resolveFetch().then(animationTimeline());
-
-window.addEventListener('load', () => {
+document.getElementById('startButton').addEventListener('click', function() {
+  // Hide the start button
+  this.style.display = 'none';
+  
+  // Play the background music
   const audio = document.getElementById('background-music');
-
-  audio.play().catch((error) => {
-    audio.muted = false;
-    audio.play();
-  });
-
-  setTimeout(() => {
-    audio.muted = false;
-    audio.play();
-  }, 500);
-});
-
-//""""//
-
-const audioElement = document.getElementById("my-audio");
-
-window.onload = () => {
+  if (audio) {
+    audio.play().catch(error => {
+      console.log('Audio playback failed:', error);
+    });
+  }
+  
+  // Start the animation sequence
   resolveFetch().then(() => {
     animationTimeline();
-    
-    // Start the audio playback
-    audioElement.play().catch((error) => {
-      console.log("Error playing audio:", error);
-    });
   });
-};
+});
